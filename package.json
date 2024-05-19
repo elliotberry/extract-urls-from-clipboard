@@ -1,9 +1,10 @@
 {
   "name": "extract-urls-from-clipboard",
   "type": "module",
-  "version": "1.0.0",
+  "author": "ChatGPT",
+  "version": "0.0.2",
   "main": "index.js",
-  "license": "MIT",
+  "license": "The Unlicense",
   "dependencies": {
     "clipboardy": "^4.0.0",
     "extract-urls": "^1.4.1"
