@@ -1,22 +1,22 @@
-import extractUrls from "extract-urls";
+import extractUrls from 'extract-urls';
 import clipboard from 'clipboardy';
 
-const returnUnique = (arr) => {
-    let unique = [...new Set(arr)];
-    return unique;
-}
-const parseURL = (url) => {
-    let parsed = new URL(url);
-    return parsed;
+const returnUnique = arr => {
+  let unique = [...new Set(arr)];
+  return unique;
+};
+
+let cliptext;
+let urls;
+
+if (process.argv.length > 2) {
+  // Extract from the first argument
+  cliptext = process.argv[2];
+} else {
+  // Extract from stdin or clipboard
+  cliptext = clipboard.readSync();
 }
 
-   
-
-let cliptext = clipboard.readSync();
-let urls = extractUrls(cliptext);
+urls = extractUrls(cliptext);
 urls = returnUnique(urls);
-//urls = urls.map(parseURL);
-console.log(`got ${urls.length} unique urls from clipboard`);
-//console.log(urls);
 console.log(urls.join('\n'));
-//=> ['https://github.com/huckbit/extract-urls', 'https://www.npmjs.com/package/extract-urls']
